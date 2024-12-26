@@ -4,6 +4,7 @@ import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.Product;
 
 public class App {
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
         ProductBasket basket = new ProductBasket("Корзина1", "Пользователь1");

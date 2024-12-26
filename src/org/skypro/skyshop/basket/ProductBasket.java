@@ -16,7 +16,7 @@ public class ProductBasket {
         this.userName = userName;
         this.products = new ArrayList<>();
     }
-    //метод удаления товара из корзины
+
     public void removeProduct(Product product) {
         if (products.remove(product)) {
             System.out.println(product.getName() + " удален из корзиныю");
@@ -24,7 +24,7 @@ public class ProductBasket {
             System.out.println(product.getName() + " не найден в корзине.");
         }
     }
-    //метод добавления товара в корзину
+
     public void addProduct(Product product) {
         if (products.size()<MAX_PRODUCTS) {
             products.add(product);
@@ -33,7 +33,7 @@ public class ProductBasket {
             System.out.println("Невозможно добавить " + product.getName() + ": корзина заполнена (максимум " + MAX_PRODUCTS + " товаров).");
         }
     }
-    //метод для подсчета стоимости корзины
+
     public double calculateTotalPrice() {
         double total = 0.0;
         for (Product product : products) {
@@ -41,7 +41,7 @@ public class ProductBasket {
         }
         return total;
     }
-    // метод поиска товара в корзине
+
     public boolean findProduct(String productName) {
         for (Product product : products) {
             if (product.getName().equalsIgnoreCase(productName)) {
@@ -50,7 +50,7 @@ public class ProductBasket {
         }
         return false;
     }
-    //метод печати содержимого корзины
+
     public void printCartContents() {
         System.out.println("Содержимое корзины " + cartName + " пользователя " + userName + ":");
         if (products.isEmpty()) {
@@ -61,7 +61,7 @@ public class ProductBasket {
             System.out.printf("Общая стоимость: %.2f\n", calculateTotalPrice() );
         }
     }
-    ///метод очистки корзины
+
     public void clearCart() {
         products.clear();
         System.out.println("Корзина очищена.");
