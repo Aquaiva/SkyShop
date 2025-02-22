@@ -83,7 +83,6 @@ public class App {
                 System.out.println(result.getName() + " (" + result.getContentType() + ")");
             }
 
-
         }
     }
 }

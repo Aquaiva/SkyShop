@@ -7,7 +7,6 @@ public abstract class Product implements Searchable {
 
     public Product(String name) {
         this.name = name;
-
     }
 
     @Override
@@ -23,7 +22,6 @@ public abstract class Product implements Searchable {
     public String getName() {
         return name;
     }
-
 
     public abstract double getPrice();
 

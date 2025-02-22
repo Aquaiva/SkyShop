@@ -5,6 +5,7 @@ import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -33,6 +34,5 @@ public class Main {
         System.out.println("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
 
 
-
-     }
+    }
 }
