@@ -17,17 +17,17 @@ public final class Article implements Searchable {
 
     @Override
     public String getSearchTerm() {
-        return this.toString(); // Возвращаем название и текст статьи
+        return this.toString();
     }
 
     @Override
     public String getContentType() {
-        return "ARTICLE"; // Тип контента
+        return "ARTICLE";
     }
 
     @Override
     public String getName() {
-        return title; // Имя статьи
+        return title;
     }
 }
 
