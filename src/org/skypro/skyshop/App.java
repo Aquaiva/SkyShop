@@ -10,6 +10,7 @@ import org.skypro.skyshop.search_engine.SearchEngine;
 import org.skypro.skyshop.searchable.Searchable;
 
 public class App {
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
 
