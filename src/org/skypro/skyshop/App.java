@@ -1,14 +1,19 @@
 package org.skypro.skyshop;
 
+import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.search_engine.SearchEngine;
+import org.skypro.skyshop.searchable.Searchable;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello, world!");
+
+        SearchEngine searchEngine = new SearchEngine(10);
 
         ProductBasket basket = new ProductBasket("Корзина1", "Пользователь1");
 
@@ -25,6 +30,15 @@ public class App {
         FixPriceProduct product9 = new FixPriceProduct("Батарейки LR6");
         FixPriceProduct product10 = new FixPriceProduct("Термопаста");
 
+        searchEngine.add(product1);
+        searchEngine.add(product2);
+
+        Article article1 = new Article("Обзор Ноутбука", "Это топовый ноутбук для работы с 3D-графикой");
+        Article article2 = new Article("Тот самый смартфон", "Мы отобрали этот смартфон из лучших, теперь он станет вашим всего за 800$");
+
+        searchEngine.add(article1);
+        searchEngine.add(article2);
+
         basket.addProduct(product1);
         basket.addProduct(product2);
         basket.addProduct(product3);
@@ -34,13 +48,13 @@ public class App {
 
         basket.printCartContents();
 
-        System.out.println ("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
-        System.out.println ("Найти 'Аудиосистема':" + (basket.findProduct("Аудиосистема") ? "найден" : "не найден"));
+        System.out.println("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
+        System.out.println("Найти 'Аудиосистема':" + (basket.findProduct("Аудиосистема") ? "найден" : "не найден"));
         basket.calculateTotalPrice();
         basket.clearCart();
         basket.calculateTotalPrice();
         basket.printCartContents();
-        System.out.println ("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
+        System.out.println("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
 
         basket.addProduct(product10);
         basket.addProduct(product9);
@@ -49,6 +63,27 @@ public class App {
         basket.addProduct(product1);
         basket.printCartContents();
 
+        System.out.println("Результаты поиска для 'ноутбук':");
+        for (Searchable result : searchEngine.search("ноутбук")) {
+            if (result != null) {
+                System.out.println(result.getName() + " (" + result.getContentType() + ")");
+            }
+        }
 
+        System.out.println("\nРезультаты поиска для 'смартфон':");
+        for (Searchable result : searchEngine.search("смартфон")) {
+            if (result != null) {
+                System.out.println(result.getName() + " (" + result.getContentType() + ")");
+            }
+        }
+
+        System.out.println("\nРезультаты поиска для 'Обзор':");
+        for (Searchable result : searchEngine.search("Обзор")) {
+            if (result != null) {
+                System.out.println(result.getName() + " (" + result.getContentType() + ")");
+            }
+
+
+        }
     }
 }
