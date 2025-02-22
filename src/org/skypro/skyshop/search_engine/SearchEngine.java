@@ -1,6 +1,7 @@
 package org.skypro.skyshop.search_engine;
 
 import org.skypro.skyshop.searchable.Searchable;
+
 import java.util.ArrayList;
 import java.util.List;
 
