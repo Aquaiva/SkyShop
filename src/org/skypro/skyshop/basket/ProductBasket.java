@@ -27,7 +27,7 @@ public class ProductBasket {
     public void addProduct(Product product) {
         if (products.size()<MAX_PRODUCTS) {
             products.add(product);
-            System.out.println(product.getName() + " добавлен в корзину.");
+            System.out.println("Товар: " + product.getName() + " добавлен в корзину.");
         } else {
             System.out.println("Невозможно добавить " + product.getName() + ": корзина заполнена (максимум " + MAX_PRODUCTS + " товаров).");
         }
@@ -58,6 +58,13 @@ public class ProductBasket {
             System.out.println(product);
         }
             System.out.printf("Общая стоимость: %.2f\n", calculateTotalPrice() );
+            int totalSpecialProducts = 0;
+            for (Product product : products) {
+                if (product.isSpecial())  {
+                    totalSpecialProducts += 1;
+                }
+            }
+            System.out.println("Специальных товаров: " + totalSpecialProducts);
         }
     }
 
