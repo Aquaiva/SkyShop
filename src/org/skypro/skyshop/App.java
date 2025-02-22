@@ -63,6 +63,7 @@ public class App {
         basket.addProduct(product1);
         basket.printCartContents();
 
+
         System.out.println("Результаты поиска для 'ноутбук':");
         for (Searchable result : searchEngine.search("ноутбук")) {
             if (result != null) {

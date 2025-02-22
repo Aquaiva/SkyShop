@@ -33,6 +33,5 @@ public class Main {
         basket.printCartContents();
         System.out.println("Найти 'Смартфон':" + (basket.findProduct("Смартфон") ? "найден" : "не найден"));
 
-
     }
 }
