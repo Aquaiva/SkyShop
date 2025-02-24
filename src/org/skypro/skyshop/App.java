@@ -6,6 +6,7 @@ import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.search_engine.BestResultNotFound;
 import org.skypro.skyshop.search_engine.SearchEngine;
 import org.skypro.skyshop.searchable.Searchable;
 
@@ -86,6 +87,53 @@ public class App {
             }
 
         }
-    }
 
+        try {
+            SimpleProduct product15 = new SimpleProduct("Electronic Pants", 10.0);
+            System.out.println(product15);
+
+            SimpleProduct product16 = new SimpleProduct("  ", 15.0);
+            System.out.println(product16);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            SimpleProduct product17 = new SimpleProduct(null, 20.0);
+            System.out.println(product17);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DiscountedProduct product11 = new DiscountedProduct("Shocker", 115, 101);
+            System.out.println(product11);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            SimpleProduct product12 = new SimpleProduct("Toaster", -21);
+            System.out.println(product12);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            Searchable bestMatch = searchEngine.findBestMatch("самый");
+            System.out.println("Найден лучший объект: " + bestMatch.getName());
+        } catch (BestResultNotFound e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            Searchable bestMatch = searchEngine.findBestMatch("зубная паста");
+            System.out.println("Найден лучший объект: " + bestMatch.getName());
+        } catch (BestResultNotFound e) {
+            System.err.println(e.getMessage());
+        }
+
+
+    }
 }
+
