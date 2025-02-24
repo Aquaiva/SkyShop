@@ -70,7 +70,6 @@ public class SearchEngine {
             index += substring.length();
             indexOfSubstring = str.indexOf(substring, index);
         }
-
         return count;
     }
 }
