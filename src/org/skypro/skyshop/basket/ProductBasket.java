@@ -25,7 +25,7 @@ public class ProductBasket {
     }
 
     public void addProduct(Product product) {
-        if (products.size()<MAX_PRODUCTS) {
+        if (products.size() < MAX_PRODUCTS) {
             products.add(product);
             System.out.println("Товар: " + product.getName() + " добавлен в корзину.");
         } else {
@@ -54,13 +54,14 @@ public class ProductBasket {
         System.out.println("Содержимое корзины " + cartName + " пользователя " + userName + ":");
         if (products.isEmpty()) {
             System.out.println("Корзина пуста.");
-        } else { for (Product product : products) {
-            System.out.println(product);
-        }
-            System.out.printf("Общая стоимость: %.2f\n", calculateTotalPrice() );
+        } else {
+            for (Product product : products) {
+                System.out.println(product);
+            }
+            System.out.printf("Общая стоимость: %.2f\n", calculateTotalPrice());
             int totalSpecialProducts = 0;
             for (Product product : products) {
-                if (product.isSpecial())  {
+                if (product.isSpecial()) {
                     totalSpecialProducts += 1;
                 }
             }
