@@ -6,7 +6,7 @@ public abstract class Product implements Searchable {
     private String name;
 
     public Product(String name) {
-        setName(name); // Используем метод setName для проверки
+        setName(name);
     }
 
     public void setName(String name) {
